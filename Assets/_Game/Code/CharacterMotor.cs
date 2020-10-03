@@ -20,8 +20,12 @@ namespace TwinPixels.LD47
 
         private Rigidbody2D _rigidbody2D;
         private Animator _animator;
+        private SpriteRenderer _spriteRenderer;
 
         private bool _facingRight;
+
+        public bool FacingRight => _facingRight;
+
         private static readonly int AnimPropFacingLeft = Animator.StringToHash("FacingLeft");
         private static readonly int AnimPropFacingRight = Animator.StringToHash("FacingRight");
         private static readonly int AnimPropMoving = Animator.StringToHash("Moving");
@@ -31,6 +35,8 @@ namespace TwinPixels.LD47
             CurrentInput = new PlayerInput();
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _animator = GetComponentInChildren<Animator>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            
             _facingRight = true;
         }
 
@@ -53,7 +59,6 @@ namespace TwinPixels.LD47
                 direction.y -= 1;
             
             
-            Debug.Log("Direction: " + direction);
             
             _rigidbody2D.velocity = direction.normalized * speed;
             
@@ -65,7 +70,7 @@ namespace TwinPixels.LD47
 
             if (_facingRight != previousFacing)
             {
-                transform.localScale = new Vector3((_facingRight ? 1 : -1), transform.localScale.y, transform.localScale.z);
+                _spriteRenderer.transform.localScale = new Vector3((_facingRight ? 1 : -1), 1, 1);
             }
         }
 

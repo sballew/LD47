@@ -10,6 +10,7 @@
         <e p="_Game" t="Include">
           <e p="Code" t="Include">
             <e p="CharacterMotor.cs" t="Include" />
+            <e p="PickupIndicator.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerInput.cs" t="Include" />
           </e>

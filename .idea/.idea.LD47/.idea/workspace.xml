@@ -20,11 +20,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de0908c-24db-4879-a6c9-de455dcad74a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Bugs/Bug1.ase" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Bugs/Bug1.ase" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Bugs/Bug1_0.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Bugs/Bug1_0.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/PickupIndicator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/PickupIndicator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Crosshair1.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Crosshair1.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Crosshair1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Crosshair1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Crosshair2.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Crosshair2.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Crosshair2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Crosshair2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Fonts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Fonts/pixellocale-v-1-4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Fonts/pixellocale-v-1-4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Fonts/pixellocale-v-1-4.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Fonts/pixellocale-v-1-4.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Frame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Frame.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/HealthBarFill.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/HealthBarFill.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/HealthBarFillTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/HealthBarFillTexture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/HealthBarFrame.ase" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/HealthBarFrame.ase.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_3-Arrows.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_3-Arrows.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_Boot.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_Boot.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_Lives.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_Lives.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_SkillSlot.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_SkillSlot.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_Sword.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/Icon_Sword.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/SkillGem.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/SkillGem.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Pointer.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Pointer.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SlashEffect.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/SlashEffect.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Treasure.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Treasure.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/UpgradeFrame.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/UpgradeFrame.aseprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +90,10 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SampleOne.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" />
         <option value="$PROJECT_DIR$/Assets/AsepriteAnimationWorkflow/Editor/AsepriteImporterSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/PickupIndicator.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" />
       </list>
     </option>
   </component>
