@@ -531,6 +531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529501071}
   - component: {fileID: 529501072}
+  - component: {fileID: 529501073}
   m_Layer: 0
   m_Name: UpgradeFrame
   m_TagString: Untagged
@@ -603,6 +604,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &529501073
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529501070}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03258419, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9, y: 1.625}
+    newSize: {x: 8.9375, y: 1.625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.818977, y: 1.625}
+  m_EdgeRadius: 0
 --- !u!1 &649830035
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Be right back!
+  m_text: Stream starting soon!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7941ac125a582e74588e27effc4016c3, type: 2}
   m_sharedMaterial: {fileID: -7263366470400022370, guid: 7941ac125a582e74588e27effc4016c3, type: 2}
@@ -668,14 +695,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -704,7 +731,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -6.121256, y: 0.48726463, z: -3.6240244, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -769,7 +796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.29, y: 4.61}
+  m_AnchoredPosition: {x: 1.29, y: 3.39}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &693929615
@@ -1229,6 +1256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1781543470}
   - component: {fileID: 1781543469}
+  - component: {fileID: 1781543471}
   m_Layer: 0
   m_Name: Frame
   m_TagString: Untagged
@@ -1301,6 +1329,32 @@ Transform:
   m_Father: {fileID: 1933016909}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1781543471
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781543468}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.25, y: 1}
+    newSize: {x: 6.25, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.25, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1856491910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +1926,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 99836b338deeee14d927041683effb6c, type: 2}
+    - target: {fileID: -7639593788175305725, guid: 006095c4a758e804fab2557bc4ff0616, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: -7619878607261153454, guid: 006095c4a758e804fab2557bc4ff0616, type: 3}
       propertyPath: speed
       value: 6

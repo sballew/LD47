@@ -34,7 +34,7 @@ namespace TwinPixels.LD47
             _facingRight = true;
         }
 
-        private void LateUpdate()
+        private void Update()
         {
             ProcessMovement(this.CurrentInput);
             UpdateAnimParameters();
@@ -50,24 +50,22 @@ namespace TwinPixels.LD47
             if (input.Up)
                 direction.y += 1;
             if (input.Down)
-            {
                 direction.y -= 1;
-            }
+            
             
             Debug.Log("Direction: " + direction);
             
             _rigidbody2D.velocity = direction.normalized * speed;
-
-            bool previousFacing = _facingRight;
             
-            if (_rigidbody2D.velocity.magnitude > 0)
-            {
-                _facingRight = _rigidbody2D.velocity.x > 0;
-            }
+             bool previousFacing = _facingRight;
+            
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _facingRight = transform.position.x - mousePos.x < 0;
+            
 
             if (_facingRight != previousFacing)
             {
-                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3((_facingRight ? 1 : -1), transform.localScale.y, transform.localScale.z);
             }
         }
 
