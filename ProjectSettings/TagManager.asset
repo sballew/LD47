@@ -15,8 +15,8 @@ TagManager:
   - SkillGems
   - EnemyProjectile
   - HUDDamage
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 

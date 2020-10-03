@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5509783001172169688}
   - component: {fileID: 9014774632008016717}
-  m_Layer: 0
+  - component: {fileID: 942233806}
+  m_Layer: 11
   m_Name: HealthAttackerBug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +50,34 @@ MonoBehaviour:
   _attackInterval: 1
   _attackProjectilePrefab: {fileID: -5028860000401200504, guid: e3754a387baaa1a4584dcceec7fcf4ac, type: 3}
   _projectileSpeed: 2.5
+  _projectileShootSound: {fileID: 8300000, guid: 53dde7da24438464b807d3a4062ba639, type: 3}
+  _health: 1
+--- !u!61 &942233806
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509783001172169695}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0014486313, y: -0.09304035}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.78240776, y: 0.8139193}
+  m_EdgeRadius: 0
 --- !u!1 &5509783001863743851
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +89,7 @@ GameObject:
   - component: {fileID: 5509783001863743892}
   - component: {fileID: 5509783001863743894}
   - component: {fileID: 5509783001863743893}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BugSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

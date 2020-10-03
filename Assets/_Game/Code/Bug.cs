@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,14 +20,21 @@ namespace TwinPixels.LD47
 
         [SerializeField] private AudioClip _projectileShootSound;
 
+        [SerializeField] private int _health = 1;
+
         private Vector2 _moveToPosition;
         private Vector2 _attackTargetPosition;
 
         private bool isAtPosition = false;
 
         private float _lastAttackTime = Mathf.NegativeInfinity;
-        
-        
+
+        private SpriteRenderer _spriteRenderer;
+
+        private void Awake()
+        {
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
 
         private void Start()
         {
@@ -87,6 +95,26 @@ namespace TwinPixels.LD47
             
             AudioSource.PlayClipAtPoint(_projectileShootSound, Camera.main.transform.position, .1f);
 
+        }
+
+        public void TakeDamage()
+        {
+            _health--;
+            if (_health > 0)
+            {
+                StartCoroutine(nameof(Flicker));
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
+        private IEnumerator Flicker()
+        {
+            _spriteRenderer.color = Color.black;
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.color = Color.white;
         }
 
         private Vector2 GetRandomPosition(BoxCollider2D zone)

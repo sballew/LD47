@@ -12,6 +12,7 @@
             <e p="Bug.cs" t="Include" />
             <e p="BugType.cs" t="Include" />
             <e p="CharacterMotor.cs" t="Include" />
+            <e p="DamageOnHit.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="PickupIndicator.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
