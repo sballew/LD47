@@ -27,3 +27,10 @@
   - Process attack input
     - If can attack, do attack
   - Track mouse crosshair
+
+## Bugs
+
+- Pick random spot in `AttackFromArea` zone.
+- Navigate to that spot.
+- Pick a random spot in the `AttackTargetArea`.
+- Once in position, fire projectiles at the target point.
