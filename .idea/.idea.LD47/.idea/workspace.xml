@@ -20,21 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de0908c-24db-4879-a6c9-de455dcad74a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/BugType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/BugType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/Projectile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/Projectile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +45,8 @@
         <option value="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugType.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/Projectile.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" />
       </list>
     </option>
   </component>

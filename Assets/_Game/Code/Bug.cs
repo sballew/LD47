@@ -17,6 +17,8 @@ namespace TwinPixels.LD47
         [SerializeField] private Rigidbody2D _attackProjectilePrefab;
         [SerializeField] private float _projectileSpeed = 1.5f;
 
+        [SerializeField] private AudioClip _projectileShootSound;
+
         private Vector2 _moveToPosition;
         private Vector2 _attackTargetPosition;
 
@@ -82,6 +84,8 @@ namespace TwinPixels.LD47
             projectile.velocity = (_attackTargetPosition - (Vector2)transform.position).normalized * _projectileSpeed;
             
             Destroy(projectile, 5f);
+            
+            AudioSource.PlayClipAtPoint(_projectileShootSound, Camera.main.transform.position, .1f);
 
         }
 
