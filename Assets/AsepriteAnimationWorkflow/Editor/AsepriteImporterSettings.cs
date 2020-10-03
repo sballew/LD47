@@ -34,7 +34,7 @@ namespace APIShift.AsepriteAnimationWorkflow
     public SpriteImportMode SpriteMode = SpriteImportMode.Multiple;
 
     [Tooltip("How many pixels in the sprite correspond to one unit in the world.")]
-    public int PixelsPerUnit = 100;
+    public int PixelsPerUnit = 16;
 
     [Tooltip("Type of sprite mesh to generate.")]
     public SpriteMeshType MeshType = SpriteMeshType.Tight;

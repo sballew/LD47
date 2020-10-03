@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8de0908c-24db-4879-a6c9-de455dcad74a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Hudson.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Hudson/Hudson.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Hudson/Hudson.aseprite.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/SampleOne.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/SampleOne.cs.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AsepriteAnimationWorkflow/Editor/AsepriteImporterSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AsepriteAnimationWorkflow/Editor/AsepriteImporterSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/HUD/SkillGem.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Art/HUD/SkillGem.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Square.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Art/Square.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/HudsonAnimController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/HudsonAnimController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +53,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SampleOne.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" />
+        <option value="$PROJECT_DIR$/Assets/AsepriteAnimationWorkflow/Editor/AsepriteImporterSettings.cs" />
       </list>
     </option>
   </component>
@@ -74,9 +107,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog" timestamp="1601688021909">
+    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog" timestamp="1601707507099">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog/0.0.2560.1400/2560.130.1920.1080@0.0.2560.1400" timestamp="1601688021909" />
+    <state x="92" y="92" width="2376" height="1216" key="VCS.FileHistoryDialog/0.0.2560.1400/2560.130.1920.1080@0.0.2560.1400" timestamp="1601707507099" />
   </component>
 </project>
