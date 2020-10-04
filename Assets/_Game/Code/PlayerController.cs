@@ -10,6 +10,7 @@ namespace TwinPixels.LD47
         private float _swordUpgradeIntervalMultiplier = 1.5f;
 
         [SerializeField] private SpriteRenderer _gemCarrySpriteRenderer;
+        [SerializeField] private SpriteRenderer _keyCarrySpriteRenderer;
         
         private CharacterMotor _motor;
 
@@ -78,6 +79,10 @@ namespace TwinPixels.LD47
             {
                 PickupGem();
             }
+            else if (input.Interact && _canPickupKey)
+            {
+                PickupKey();
+            }
             else if (input.Interact && _canPlaceGem && GameManager.Instance.isPlayerCarryingGem)
             {
                 PlaceGem();
@@ -144,12 +149,24 @@ namespace TwinPixels.LD47
         private void PickupKey()
         {
             _canPickupKey = false;
+            GameManager.Instance.isPlayerCarryingKey = true;
+            
+            _animator.SetBool("Carrying", true);
+            _keyCarrySpriteRenderer.enabled = true;
+            Destroy(_keyToPickup.gameObject);
         }
 
         private void DropGem()
         {
             GameManager.Instance.isPlayerCarryingGem = false;
             _gemCarrySpriteRenderer.enabled = false;
+            _animator.SetBool("Carrying", false);
+        }
+        
+        private void DropKey()
+        {
+            GameManager.Instance.isPlayerCarryingKey = false;
+            _keyCarrySpriteRenderer.enabled = false;
             _animator.SetBool("Carrying", false);
         }
 

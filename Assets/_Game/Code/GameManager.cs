@@ -57,6 +57,7 @@ namespace TwinPixels.LD47
         public SkillGem skillGemPrefab;
 
         public bool isPlayerCarryingGem = false;
+        public bool isPlayerCarryingKey = false;
 
         public PlayerController player;
 
