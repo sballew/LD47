@@ -4,6 +4,7 @@
     {
         Sword,
         Arrows,
-        Boots
+        Boots,
+        Life
     }
 }

@@ -34,6 +34,12 @@ namespace TwinPixels.LD47
         private static readonly int AnimPropFacingRight = Animator.StringToHash("FacingRight");
         private static readonly int AnimPropMoving = Animator.StringToHash("Moving");
 
+        public void DisableInput()
+        {
+            CurrentInput = new PlayerInput();
+            _rigidbody2D.velocity = Vector2.zero;
+        }
+
         private void Start()
         {
             CurrentInput = new PlayerInput();

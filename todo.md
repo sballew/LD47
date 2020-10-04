@@ -10,12 +10,6 @@
 
 ## To-Do
 
-- Add death state
-- Spawn key and door when upgrades are complete
-- Unlock door with key
-- Shows 'thanks for playing'
-  - Dance animation
-
 ## Bugs
 
 - Pick random spot in `AttackFromArea` zone.

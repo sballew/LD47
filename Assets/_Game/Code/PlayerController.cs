@@ -45,8 +45,13 @@ namespace TwinPixels.LD47
         private bool _canPlaceGem;
         private SkillSlot _skillSlot;
         
-        public bool ArrowUpgradeEnabled;
-        public bool SwordUpgradeEnabled;
+        [NonSerialized]
+        public bool ArrowUpgradeEnabled = false;
+        
+        [NonSerialized]
+        public bool SwordUpgradeEnabled = false;
+
+        private bool _inputDisabled = false;
         
         public CharacterMotor Motor
         {
@@ -59,6 +64,12 @@ namespace TwinPixels.LD47
             _animator = GetComponentInChildren<Animator>();
         }
 
+        public void DisableInput()
+        {
+            _inputDisabled = true;
+            _motor.DisableInput();
+        }
+
         public void Celebrate()
         {
             _animator.SetTrigger("Celebrate");
@@ -66,6 +77,11 @@ namespace TwinPixels.LD47
 
         private void Update()
         {
+            if (_inputDisabled)
+            {
+                return;
+            }
+            
             PlayerInput input = new PlayerInput()
             {
                 Attack = Input.GetMouseButton(0),
@@ -182,6 +198,8 @@ namespace TwinPixels.LD47
             {
                 return;
             }
+            
+            Debug.Log("Attacking with sword upgrade: " + SwordUpgradeEnabled);
             
 
             _lastAttackTime = Time.time;

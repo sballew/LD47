@@ -31,7 +31,7 @@ namespace TwinPixels.LD47
 
         private void Start()
         {
-            _lastSpawnTime = Time.time - (_spawnInterval / 2f);
+            _lastSpawnTime = Time.time - 1.5f;
         }
 
         public void TakeDamage(int damage)

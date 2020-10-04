@@ -15,6 +15,8 @@ namespace TwinPixels.LD47
         public AudioClip MusicWin;
         public AudioClip MusicLose;
 
+        public bool gameWon = false;
+
         [SerializeField]
         private GameObject _keySpawnPoint;
 
@@ -35,6 +37,8 @@ namespace TwinPixels.LD47
         [SerializeField] private BugSpawner healthAttackerSpawnerPrefab;
         [SerializeField] private BugSpawner skillThiefSpawnerPrefab;
         [SerializeField] private BoxCollider2D spawnerZone;
+        [SerializeField] private BoxCollider2D spawnerZone2;
+
 
         [SerializeField] private GameObject gameOverVisual;
         [SerializeField] private GameObject gameWinVisual;
@@ -43,7 +47,7 @@ namespace TwinPixels.LD47
         
         private int _currentHealth = 100;
 
-        private float _skillThiefSpawnerChance = .3f;
+        private float _skillThiefSpawnerChance = .55f;
 
         private int _spawnersKilled = 0;
         private int _bugsKilled = 0;
@@ -56,10 +60,10 @@ namespace TwinPixels.LD47
         private int _spawnersCreatedSoFar = 0;
         private float _spawnerCurrentInterval = 5f;
         private float _lastSpawnerTime = -2f;
-        private float _doubleSpawnerChance = .15f;
+        private float _doubleSpawnerChance = .3f;
 
-        private float skillGemSpawnInterval = 23f;
-        private float lastSkillGemSpawn = -13f;
+        private float skillGemSpawnInterval = 26f;
+        private float lastSkillGemSpawn = -16f;
         public SkillGem skillGemPrefab;
 
         public bool isPlayerCarryingGem = false;
@@ -137,10 +141,22 @@ namespace TwinPixels.LD47
                                             
                         CreateNewSpawner();
                         _spawnersCreatedSoFar++;
-                        
-                        if (_spawnersCreatedSoFar == 2 || (_spawnersCreatedSoFar > 2 && Random.Range(0f, 1f) <= _doubleSpawnerChance))
+
+                        if (_spawnersCreatedSoFar == 2)
                         {
                             CreateNewSpawner();
+                        }
+                        else if (_spawnersCreatedSoFar == 3 || _spawnersCreatedSoFar == 4)
+                        {
+                            CreateNewSpawner();
+                            CreateNewSpawner();
+                        }
+                        else if (_spawnersCreatedSoFar > 1)
+                        {
+                            if (_spawnersCreatedSoFar > 2 && Random.Range(0f, 1f) <= _doubleSpawnerChance)
+                            {
+                                CreateNewSpawner();
+                            }
                         }
 
                         // Every X spawners, increase the rate of new spawners.
@@ -228,7 +244,7 @@ namespace TwinPixels.LD47
         private void CreateNewSpawner(BugType bugType = BugType.HealthAttacker)
         {
             // Pick location
-            Vector2 spawnerLocation = GetRandomPosition(spawnerZone);
+            Vector2 spawnerLocation = GetRandomPosition(bugType == BugType.SkillStealer ? spawnerZone2 : spawnerZone);
             
             // Create spawner
             BugSpawner prefabToSpawn;
@@ -304,10 +320,13 @@ namespace TwinPixels.LD47
 
         public void WinTheGame()
         {
+            gameWon = true;
             StopSpawners();
             
             player.DropGem();
             player.DropKey();
+
+            player.DisableInput();
             
             
             var spawners = FindObjectsOfType<BugSpawner>();

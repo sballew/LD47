@@ -52,6 +52,7 @@ namespace TwinPixels.LD47
 
         public void SetSlotFill(bool fill)
         {
+            Debug.Log("Set slot fill for skill " + _skillSlotType + " to value " + fill);
             _fillRenderer.enabled = fill;
             switch (_skillSlotType)
             {
