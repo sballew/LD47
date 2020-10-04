@@ -24,6 +24,8 @@ namespace TwinPixels.LD47
 
         public bool isPlayerCarryingGem = false;
 
+        public PlayerController player;
+
         public static GameManager Instance { get; private set; }
 
         private void Awake()
@@ -35,6 +37,7 @@ namespace TwinPixels.LD47
             }
             
             Instance = this;
+            player = FindObjectOfType<PlayerController>();
             StartSpawners();
         }
 
@@ -85,10 +88,10 @@ namespace TwinPixels.LD47
             _currentHealth += amount;
             if (_currentHealth < 0)
             {
+                // Debug.Log("Player is dead");
                 _currentHealth = 0;
             }
             
-            Debug.Log("Health: " + _currentHealth);
             Transform maskScaler = healthBarMask.transform.parent;
             
             maskScaler.localScale = new Vector3(_currentHealth / 100f, 1,

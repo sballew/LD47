@@ -26,6 +26,9 @@ namespace TwinPixels.LD47
         private bool _canPickupGem;
         private SkillGem _gemToPickup;
 
+        private bool _canPlaceGem;
+        private SkillSlot _skillSlot;
+
         private void Start()
         {
             _motor = GetComponent<CharacterMotor>();
@@ -51,6 +54,11 @@ namespace TwinPixels.LD47
                 Debug.Log("Picking up gem");
                 PickupGem();
             }
+            else if (input.Interact && _canPlaceGem)
+            {
+                Debug.Log("Placing gem in slot " + _skillSlot.gameObject.name);
+                PlaceGem();
+            }
             else if (input.Attack)
             {
                 Attack();
@@ -60,11 +68,18 @@ namespace TwinPixels.LD47
         private void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("Player entered trigger: " + other.gameObject.name);
-            if (other.CompareTag("SkillGem"))
+            if (other.CompareTag("SkillGem") && !GameManager.Instance.isPlayerCarryingGem)
             {
                 _canPickupGem = true;
                 _gemToPickup = other.GetComponent<SkillGem>();
             }
+
+            if (other.CompareTag("SkillSlot"))
+            {
+                _canPlaceGem = true;
+                _skillSlot = other.GetComponent<SkillSlot>();
+            }
+            
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -73,6 +88,12 @@ namespace TwinPixels.LD47
             {
                 _canPickupGem = false;
             }
+        }
+
+        private void PlaceGem()
+        {
+            DropGem();
+            _skillSlot.SetSlotFill(true);
         }
 
         private void PickupGem()
