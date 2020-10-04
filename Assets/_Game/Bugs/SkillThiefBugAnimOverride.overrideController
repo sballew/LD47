@@ -7,5 +7,7 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SkillThiefBugAnimOverride
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: db3e872be61e790498a532f9a410aa9e, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 1269701724786446613, guid: 0a3773a3c76744543afb55ce1c3e734c, type: 3}
+    m_OverrideClip: {fileID: 8577987308860688191, guid: 119962f5208b59a4b89275414e21a759, type: 3}

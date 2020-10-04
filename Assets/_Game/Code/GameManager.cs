@@ -18,14 +18,15 @@ namespace TwinPixels.LD47
 
         [SerializeField] private SpriteMask healthBarMask;
 
-        [SerializeField] private BugSpawner spawnerPrefab;
+        [SerializeField] private BugSpawner healthAttackerSpawnerPrefab;
+        [SerializeField] private BugSpawner skillThiefSpawnerPrefab;
         [SerializeField] private BoxCollider2D spawnerZone;
 
         private bool _spawnersActive = false;
         
         private int _currentHealth = 100;
 
-        private float _skillThiefSpawnerChance = 0.1f;
+        private float _skillThiefSpawnerChance = .8f;
 
         private int _spawnersKilled = 0;
         private int _bugsKilled = 0;
@@ -136,7 +137,21 @@ namespace TwinPixels.LD47
             Vector2 spawnerLocation = GetRandomPosition(spawnerZone);
             
             // Create spawner
-            var spawner = Instantiate(spawnerPrefab);
+            BugSpawner prefabToSpawn;
+            if (bugType == BugType.HealthAttacker)
+            {
+                prefabToSpawn = healthAttackerSpawnerPrefab;
+            }
+            else if (bugType == BugType.SkillStealer)
+            {
+                prefabToSpawn = skillThiefSpawnerPrefab;
+            }
+            else
+            {
+                throw new Exception("Unknown spawner type: " + bugType);
+            }
+            
+            var spawner = Instantiate(prefabToSpawn);
 
             spawner.bugType = bugType;
 
