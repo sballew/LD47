@@ -26,7 +26,7 @@ namespace TwinPixels.LD47
         
         private int _currentHealth = 100;
 
-        private float _skillThiefSpawnerChance = .5f;
+        private float _skillThiefSpawnerChance = .3f;
 
         private int _spawnersKilled = 0;
         private int _bugsKilled = 0;
@@ -36,7 +36,7 @@ namespace TwinPixels.LD47
         private int _spawnersCreatedSoFar = 0;
         private float _spawnerCurrentInterval = 5f;
         private float _lastSpawnerTime = 2f;
-        private float _doubleSpawnerChance = .25f;
+        private float _doubleSpawnerChance = .15f;
 
         private float skillGemSpawnInterval = 23f;
         private float lastSkillGemSpawn = -13f;
@@ -102,7 +102,7 @@ namespace TwinPixels.LD47
                     CreateNewSpawner();
                     _spawnersCreatedSoFar++;
 
-                    if (Random.Range(0f, 1f) <= _doubleSpawnerChance)
+                    if (_spawnersCreatedSoFar == 3 || (_spawnersCreatedSoFar > 3 && Random.Range(0f, 1f) <= _doubleSpawnerChance))
                     {
                         CreateNewSpawner();
                     }

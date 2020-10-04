@@ -75,7 +75,7 @@ namespace TwinPixels.LD47
             {
                 PickupGem();
             }
-            else if (input.Interact && _canPlaceGem)
+            else if (input.Interact && _canPlaceGem && GameManager.Instance.isPlayerCarryingGem)
             {
                 PlaceGem();
             }

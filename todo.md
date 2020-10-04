@@ -10,8 +10,6 @@
 
 ## To-Do
 
-- Sword upgrade
-- Bow upgrade
 - Add death state
 - Spawn key and door when upgrades are complete
 - Unlock door with key
