@@ -151,10 +151,12 @@ MonoBehaviour:
   _gemCarrySpriteRenderer: {fileID: 4471217340845782165}
   _attackPrefab: {fileID: 1438695764167927000, guid: 0bb14572eb878484c9ba9453f17b2302, type: 3}
   _bowAttackInterval: 0.8
-  _arrowVelocity: 10
+  _arrowVelocity: 12
   _bowProjectilePrefab: {fileID: 7681266166022301576, guid: cd61e5ef5dc202a4a874e5fafb072289, type: 3}
   _attackDistanceOffset: 0.75
   _attackSound: {fileID: 8300000, guid: 517b9266be1b19a498cc462de95681b3, type: 3}
+  ArrowUpgradeEnabled: 0
+  SwordUpgradeEnabled: 0
 --- !u!50 &-7639593788175305725
 Rigidbody2D:
   serializedVersion: 4

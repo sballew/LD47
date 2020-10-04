@@ -13,7 +13,7 @@ namespace TwinPixels.LD47
 
         private float _lastSpawnTime = 0f;
 
-        public float _spawnInterval = 2.5f;
+        public float _spawnInterval = 2.2f;
 
         public int _bugsToSpawn = 2;
 

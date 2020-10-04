@@ -149,8 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugPrefab: {fileID: 9014774632008016717, guid: 81fbcec05ff89e148bdae2eeed03e119, type: 3}
   bugType: 1
-  _spawnInterval: 10
+  _spawnInterval: 7
   _bugsToSpawn: 1
+  _spawnDistance: 1.5
 --- !u!61 &5624448416931547498
 BoxCollider2D:
   m_ObjectHideFlags: 0

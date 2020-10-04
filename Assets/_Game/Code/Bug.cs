@@ -34,6 +34,8 @@ namespace TwinPixels.LD47
         private SkillSlot _skillToSteal;
 
         [SerializeField] private SpriteRenderer _carriedGem;
+        [SerializeField]
+        private AnimateIndicator _indicator;
 
         [SerializeField] private SkillGem _gemPrefab;
 
@@ -118,6 +120,7 @@ namespace TwinPixels.LD47
             {
                 _skillToSteal.SetSlotFill(false);
                 _carriedGem.enabled = true;
+                _indicator.gameObject.SetActive(true);
             }
         }
 
@@ -185,5 +188,7 @@ namespace TwinPixels.LD47
 
             return randomPosition;
         }
+        
+
     }
 }

@@ -7,6 +7,7 @@ namespace TwinPixels.LD47
     {
         [SerializeField]
         private float _attackInterval = .4f;
+        private float _swordUpgradeIntervalMultiplier = 1.5f;
 
         [SerializeField] private SpriteRenderer _gemCarrySpriteRenderer;
         
@@ -23,6 +24,7 @@ namespace TwinPixels.LD47
         
         [SerializeField]
         private float _bowAttackInterval = .8f;
+        private float _bowUpgradeIntervalMultiplier = 1.5f;
 
         [SerializeField] private float _arrowVelocity = 3f;
         
@@ -38,6 +40,9 @@ namespace TwinPixels.LD47
 
         private bool _canPlaceGem;
         private SkillSlot _skillSlot;
+        
+        public bool ArrowUpgradeEnabled;
+        public bool SwordUpgradeEnabled;
         
         public CharacterMotor Motor
         {
@@ -68,12 +73,10 @@ namespace TwinPixels.LD47
 
             if (input.Interact && _canPickupGem)
             {
-                Debug.Log("Picking up gem");
                 PickupGem();
             }
             else if (input.Interact && _canPlaceGem)
             {
-                Debug.Log("Placing gem in slot " + _skillSlot.gameObject.name);
                 PlaceGem();
             }
             if (input.Attack)
@@ -88,7 +91,6 @@ namespace TwinPixels.LD47
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Player entered trigger: " + other.gameObject.name);
             if (other.CompareTag("SkillGem") && !GameManager.Instance.isPlayerCarryingGem)
             {
                 _canPickupGem = true;
@@ -119,7 +121,6 @@ namespace TwinPixels.LD47
 
         private void PickupGem()
         {
-            Debug.Log("Picking up gem: " + _gemToPickup);
             _canPickupGem = false;
             GameManager.Instance.isPlayerCarryingGem = true;
             _animator.SetBool("Carrying", true);
@@ -136,7 +137,7 @@ namespace TwinPixels.LD47
 
         private void Attack()
         {
-            if (Time.time - _lastAttackTime < _attackInterval)
+            if (Time.time - _lastAttackTime < (_attackInterval / (SwordUpgradeEnabled ? _swordUpgradeIntervalMultiplier : 1)))
             {
                 return;
             }
@@ -146,6 +147,11 @@ namespace TwinPixels.LD47
             GameObject attackObj = Instantiate(_attackPrefab, transform);
 
             attackObj.transform.position = transform.position;
+
+            if (SwordUpgradeEnabled)
+            {
+                attackObj.transform.localScale *= 2.5f;
+            }
             
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -164,17 +170,13 @@ namespace TwinPixels.LD47
 
         private void AttackBow()
         {
-            if (Time.time - _lastBowAttackTime < _bowAttackInterval)
+            
+            if (Time.time - _lastBowAttackTime < (_bowAttackInterval / (ArrowUpgradeEnabled ? _bowUpgradeIntervalMultiplier : 1)))
             {
                 return;
             }
-            
-
             _lastBowAttackTime = Time.time;
-            ArrowProjectile arrowObj = Instantiate(_bowProjectilePrefab);
-            Rigidbody2D arrowBody = arrowObj.GetComponent<Rigidbody2D>();
 
-            
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             float angleRads = Mathf.Atan2(mousePos.y - transform.position.y,
@@ -184,42 +186,58 @@ namespace TwinPixels.LD47
             
             Vector2 velocityDirection = Vector2.zero;
             
-            // Check if we're shooting up/left/down/right
-            if (angleDeg >= -45 && angleDeg <= 45)
+            if (ArrowUpgradeEnabled)
             {
-                // Right
-                velocityDirection = Vector2.right;
-            }
-            else if (angleDeg >= 45 && angleDeg <= 135)
-            {
-                // Up
-                velocityDirection = Vector2.up;
-                arrowObj.transform.Rotate(Vector3.forward, 90);
-            }
-            else if (angleDeg >= -135 && angleDeg <= -45)
-            {
-                // Down
-                velocityDirection = Vector2.down;
-                arrowObj.transform.Rotate(Vector3.forward, -90);
+                SpawnArrow(Vector2.up * _arrowVelocity, 90, false);
+                SpawnArrow(Vector2.down * _arrowVelocity, -90, false);
+                SpawnArrow(Vector2.left * _arrowVelocity, 180, false);
+                SpawnArrow(Vector2.right * _arrowVelocity, 0);
             }
             else
             {
-                // Left
-                velocityDirection = Vector2.left;
-                arrowObj.transform.Rotate(Vector3.forward, 180);
+                // Check if we're shooting up/left/down/right
+                if (angleDeg >= -45 && angleDeg <= 45)
+                {
+                    // Right
+                    SpawnArrow(Vector2.right * _arrowVelocity, 0);
+                }
+                else if (angleDeg >= 45 && angleDeg <= 135)
+                {
+                    // Up
+                    SpawnArrow(Vector2.up * _arrowVelocity, 90);
+                }
+                else if (angleDeg >= -135 && angleDeg <= -45)
+                {
+                    // Down
+                    SpawnArrow(Vector2.down * _arrowVelocity, -90);
+                }
+                else
+                {
+                    // Left
+                    SpawnArrow(Vector2.left * _arrowVelocity, 180);
+                }
             }
+        }
 
-            Vector2 spawnOffset = _attackDistanceOffset * velocityDirection;
+        private void SpawnArrow(Vector2 velocity, float rotation, bool playSound = true)
+        {
+            ArrowProjectile arrowObj = Instantiate(_bowProjectilePrefab);
+            Rigidbody2D arrowBody = arrowObj.GetComponent<Rigidbody2D>();
             
+            arrowObj.transform.Rotate(Vector3.forward, rotation);
+            
+            Vector2 spawnOffset = _attackDistanceOffset * velocity.normalized;
             arrowObj.transform.position = new Vector2(transform.position.x + spawnOffset.x, transform.position.y + spawnOffset.y);
-
             
-            arrowBody.velocity = velocityDirection * _arrowVelocity;
+            arrowBody.velocity = velocity;
 
             Debug.DrawLine(arrowObj.transform.position, (Vector2)arrowObj.transform.position + (arrowBody.velocity.normalized * 3f), Color.green, 5f);
-            
-            AudioSource.PlayClipAtPoint(_attackSound, Camera.main.transform.position, .5f);
-            
+
+            if (playSound)
+            {
+                AudioSource.PlayClipAtPoint(_attackSound, Camera.main.transform.position, .5f);
+            }
+
             Destroy(arrowObj.gameObject, 1f);
         }
     }

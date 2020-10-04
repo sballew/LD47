@@ -18,7 +18,7 @@ namespace TwinPixels.LD47
         public bool startFilled = false;
         public bool acceptsGem = true;
         
-        private bool _indicatorShown = false;
+        private bool IndicatorShown => _indicatorSpriteRenderer.enabled;
 
         private Vector3 _indicatorStartPosition;
         private Vector3 _indicatorEndPosition;
@@ -40,11 +40,11 @@ namespace TwinPixels.LD47
 
         private void Update()
         {
-            if (acceptsGem && GameManager.Instance.isPlayerCarryingGem && !_indicatorShown)
+            if (acceptsGem && GameManager.Instance.isPlayerCarryingGem && !IndicatorShown)
             {
                 ShowIndicator();
             }
-            else if (acceptsGem && _indicatorShown && !GameManager.Instance.isPlayerCarryingGem)
+            else if (acceptsGem && IndicatorShown && !GameManager.Instance.isPlayerCarryingGem)
             {
                 HideIndicator();
             }
@@ -57,6 +57,12 @@ namespace TwinPixels.LD47
             {
                 case SkillSlotType.Boots:
                     GameManager.Instance.player.Motor.SpeedBootsEnabled = fill;
+                    break;
+                case SkillSlotType.Arrows:
+                    GameManager.Instance.player.ArrowUpgradeEnabled = fill;
+                    break;
+                case SkillSlotType.Sword:
+                    GameManager.Instance.player.SwordUpgradeEnabled = fill;
                     break;
             }
         }
