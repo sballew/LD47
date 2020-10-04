@@ -10,6 +10,7 @@ TagManager:
   - SkillGem
   - SkillSlot
   - Player Projectile
+  - Key
   layers:
   - Default
   - TransparentFX

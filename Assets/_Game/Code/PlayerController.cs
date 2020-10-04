@@ -37,6 +37,9 @@ namespace TwinPixels.LD47
 
         private bool _canPickupGem;
         private SkillGem _gemToPickup;
+        
+        private bool _canPickupKey;
+        private Key _keyToPickup;
 
         private bool _canPlaceGem;
         private SkillSlot _skillSlot;
@@ -96,6 +99,12 @@ namespace TwinPixels.LD47
                 _canPickupGem = true;
                 _gemToPickup = other.GetComponent<SkillGem>();
             }
+            
+            else if (other.CompareTag("Key") && !GameManager.Instance.isPlayerCarryingGem)
+            {
+                _canPickupKey = true;
+                _keyToPickup = other.GetComponent<Key>();
+            }
 
             if (other.CompareTag("SkillSlot"))
             {
@@ -110,6 +119,10 @@ namespace TwinPixels.LD47
             if (other.CompareTag("SkillGem"))
             {
                 _canPickupGem = false;
+            }
+            if (other.CompareTag("Key"))
+            {
+                _canPickupKey = false;
             }
         }
 
@@ -126,6 +139,11 @@ namespace TwinPixels.LD47
             _animator.SetBool("Carrying", true);
             _gemCarrySpriteRenderer.enabled = true;
             Destroy(_gemToPickup.gameObject);
+        }
+
+        private void PickupKey()
+        {
+            _canPickupKey = false;
         }
 
         private void DropGem()
