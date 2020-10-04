@@ -134,6 +134,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   speed: 6
+  SpeedBootsEnabled: 0
 --- !u!114 &1850912165779215545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,9 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786d7dc8330d476b843568afbc17a685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackInterval: 0.2
+  _attackInterval: 0.3
   _gemCarrySpriteRenderer: {fileID: 4471217340845782165}
   _attackPrefab: {fileID: 1438695764167927000, guid: 0bb14572eb878484c9ba9453f17b2302, type: 3}
+  _bowAttackInterval: 0.8
+  _arrowVelocity: 10
+  _bowProjectilePrefab: {fileID: 7681266166022301576, guid: cd61e5ef5dc202a4a874e5fafb072289, type: 3}
   _attackDistanceOffset: 0.75
   _attackSound: {fileID: 8300000, guid: 517b9266be1b19a498cc462de95681b3, type: 3}
 --- !u!50 &-7639593788175305725

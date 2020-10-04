@@ -17,7 +17,7 @@ namespace TwinPixels.LD47
 
         public int _bugsToSpawn = 2;
 
-        private float _spawnDistance = 1f;
+        public float _spawnDistance = 1.5f;
 
         private SpriteRenderer _spriteRenderer;
 
@@ -33,9 +33,9 @@ namespace TwinPixels.LD47
             _lastSpawnTime = Time.time - (_spawnInterval / 2f);
         }
 
-        public void TakeDamage()
+        public void TakeDamage(int damage)
         {
-            _health--;
+            _health -= damage;
             if (_health <= 0)
             {
                 GameManager.Instance.OnSpawnerKilled();

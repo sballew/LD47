@@ -9,6 +9,7 @@
       <e p="Assets" t="Include">
         <e p="_Game" t="Include">
           <e p="Code" t="Include">
+            <e p="ArrowProjectile.cs" t="Include" />
             <e p="Bug.cs" t="Include" />
             <e p="BugProjectile.cs" t="Include" />
             <e p="BugSpawner.cs" t="Include" />

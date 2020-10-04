@@ -10,6 +10,7 @@ namespace TwinPixels.LD47
         public bool Down;
 
         public bool Attack;
+        public bool Attack2;
 
         public bool Interact;
     }

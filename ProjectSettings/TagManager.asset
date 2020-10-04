@@ -9,6 +9,7 @@ TagManager:
   - Spawner
   - SkillGem
   - SkillSlot
+  - Player Projectile
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - HUDDamage
   - Player
   - Enemy
-  - 
+  - Player Projectile
   - 
   - 
   - 

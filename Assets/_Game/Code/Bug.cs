@@ -142,9 +142,9 @@ namespace TwinPixels.LD47
 
         }
 
-        public void TakeDamage()
+        public void TakeDamage(int damage)
         {
-            _health--;
+            _health -= damage;
             if (_health > 0)
             {
                 StartCoroutine(nameof(Flicker));

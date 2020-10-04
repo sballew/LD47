@@ -20,7 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de0908c-24db-4879-a6c9-de455dcad74a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/ArrowProjectile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/ArrowProjectile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Weapons/ArrowDiagonal.ase" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Weapons/ArrowDiagonal.ase.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Weapons/ArrowProjectile.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Weapons/ArrowProjectile.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/BugSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/BugSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/DamageOnHit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/DamageOnHit.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Props/Treasure.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Props/Treasure.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Weapons/Arrow1.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Weapons/Arrow1.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Weapons/Arrow2.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Weapons/Arrow2.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Weapons/Arrow2.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Weapons/Arrow2.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +53,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03D6B81D-BDC1-44C4-8B32-6B6B735D45EF/18/c57c3f3d/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -43,17 +64,19 @@
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugType.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/Projectile.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugProjectile.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/DamageOnHit.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillGem.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillSlotType.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/RepeatingAnimation.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillSlot.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/ArrowProject.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/ArrowProjectile.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/DamageOnHit.cs" />
       </list>
     </option>
   </component>

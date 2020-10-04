@@ -13,11 +13,21 @@ namespace TwinPixels.LD47
         private CharacterMotor _motor;
 
         private float _lastAttackTime = Mathf.NegativeInfinity;
+        private float _lastBowAttackTime = Mathf.NegativeInfinity;
 
         private Animator _animator;
 
         [SerializeField]
         private GameObject _attackPrefab;
+        
+        
+        [SerializeField]
+        private float _bowAttackInterval = .8f;
+
+        [SerializeField] private float _arrowVelocity = 3f;
+        
+        [SerializeField]
+        private ArrowProjectile _bowProjectilePrefab;
 
         [SerializeField] private float _attackDistanceOffset = .5f;
 
@@ -45,6 +55,8 @@ namespace TwinPixels.LD47
             PlayerInput input = new PlayerInput()
             {
                 Attack = Input.GetMouseButton(0),
+                Attack2 = Input.GetMouseButtonDown(1),
+                // Attack2 = false,
                 Up = Input.GetKey(KeyCode.W),
                 Down = Input.GetKey(KeyCode.S),
                 Left = Input.GetKey(KeyCode.A),
@@ -64,9 +76,13 @@ namespace TwinPixels.LD47
                 Debug.Log("Placing gem in slot " + _skillSlot.gameObject.name);
                 PlaceGem();
             }
-            else if (input.Attack)
+            if (input.Attack)
             {
                 Attack();
+            }
+            if (input.Attack2)
+            {
+                AttackBow();
             }
         }
 
@@ -144,6 +160,67 @@ namespace TwinPixels.LD47
             AudioSource.PlayClipAtPoint(_attackSound, Camera.main.transform.position, .5f);
             
             Destroy(attackObj, .2f);
+        }
+
+        private void AttackBow()
+        {
+            if (Time.time - _lastBowAttackTime < _bowAttackInterval)
+            {
+                return;
+            }
+            
+
+            _lastBowAttackTime = Time.time;
+            ArrowProjectile arrowObj = Instantiate(_bowProjectilePrefab);
+            Rigidbody2D arrowBody = arrowObj.GetComponent<Rigidbody2D>();
+
+            
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            float angleRads = Mathf.Atan2(mousePos.y - transform.position.y,
+                mousePos.x - transform.position.x);
+            
+            float angleDeg = (180 / Mathf.PI) * angleRads;
+            
+            Vector2 velocityDirection = Vector2.zero;
+            
+            // Check if we're shooting up/left/down/right
+            if (angleDeg >= -45 && angleDeg <= 45)
+            {
+                // Right
+                velocityDirection = Vector2.right;
+            }
+            else if (angleDeg >= 45 && angleDeg <= 135)
+            {
+                // Up
+                velocityDirection = Vector2.up;
+                arrowObj.transform.Rotate(Vector3.forward, 90);
+            }
+            else if (angleDeg >= -135 && angleDeg <= -45)
+            {
+                // Down
+                velocityDirection = Vector2.down;
+                arrowObj.transform.Rotate(Vector3.forward, -90);
+            }
+            else
+            {
+                // Left
+                velocityDirection = Vector2.left;
+                arrowObj.transform.Rotate(Vector3.forward, 180);
+            }
+
+            Vector2 spawnOffset = _attackDistanceOffset * velocityDirection;
+            
+            arrowObj.transform.position = new Vector2(transform.position.x + spawnOffset.x, transform.position.y + spawnOffset.y);
+
+            
+            arrowBody.velocity = velocityDirection * _arrowVelocity;
+
+            Debug.DrawLine(arrowObj.transform.position, (Vector2)arrowObj.transform.position + (arrowBody.velocity.normalized * 3f), Color.green, 5f);
+            
+            AudioSource.PlayClipAtPoint(_attackSound, Camera.main.transform.position, .5f);
+            
+            Destroy(arrowObj.gameObject, 1f);
         }
     }
 }

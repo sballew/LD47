@@ -34,10 +34,11 @@ namespace TwinPixels.LD47
         private int _playerLivesLeft = 3;
         
         private int _spawnersCreatedSoFar = 0;
-        private float _spawnerCurrentInterval = 5f;
+        private float _spawnerCurrentInterval = 4.5f;
         private float _lastSpawnerTime = Mathf.NegativeInfinity;
+        private float _doubleSpawnerChance = .25f;
 
-        public float skillGemSpawnInterval = 15f;
+        private float skillGemSpawnInterval = 23f;
         private float lastSkillGemSpawn = 0f;
         public SkillGem skillGemPrefab;
 
@@ -101,8 +102,13 @@ namespace TwinPixels.LD47
                     CreateNewSpawner();
                     _spawnersCreatedSoFar++;
 
+                    if (Random.Range(0f, 1f) <= _doubleSpawnerChance)
+                    {
+                        CreateNewSpawner();
+                    }
+
                     // Every 6 spawners, increase the rate of new spawners.
-                    if (_spawnersCreatedSoFar % 6 == 0)
+                    if (_spawnersCreatedSoFar % 5 == 0)
                     {
                         _spawnerCurrentInterval = Mathf.Max(_spawnerCurrentInterval - .25f, 2.5f);
                         Debug.Log("New spawner rate: " + _spawnerCurrentInterval);
