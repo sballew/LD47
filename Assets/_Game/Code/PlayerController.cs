@@ -6,7 +6,7 @@ namespace TwinPixels.LD47
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
-        private float _attackInterval = .2f;
+        private float _attackInterval = .4f;
 
         [SerializeField] private SpriteRenderer _gemCarrySpriteRenderer;
         
@@ -44,7 +44,7 @@ namespace TwinPixels.LD47
         {
             PlayerInput input = new PlayerInput()
             {
-                Attack = Input.GetMouseButtonDown(0),
+                Attack = Input.GetMouseButton(0),
                 Up = Input.GetKey(KeyCode.W),
                 Down = Input.GetKey(KeyCode.S),
                 Left = Input.GetKey(KeyCode.A),

@@ -37,6 +37,10 @@ namespace TwinPixels.LD47
         private float _spawnerCurrentInterval = 5f;
         private float _lastSpawnerTime = Mathf.NegativeInfinity;
 
+        public float skillGemSpawnInterval = 15f;
+        private float lastSkillGemSpawn = 0f;
+        public SkillGem skillGemPrefab;
+
         public bool isPlayerCarryingGem = false;
 
         public PlayerController player;
@@ -107,8 +111,17 @@ namespace TwinPixels.LD47
                     // See if we want to spawn a skill thief spawner as well
                     if (Random.Range(0f, 1f) <= _skillThiefSpawnerChance)
                     {
-                        CreateNewSpawner(BugType.SkillStealer);
+                        if (GetRandomFilledSkill() != null)
+                        {
+                            CreateNewSpawner(BugType.SkillStealer);
+                        }
                     }
+                }
+
+                if (Time.time - lastSkillGemSpawn >= skillGemSpawnInterval)
+                {
+                    lastSkillGemSpawn = Time.time;
+                    SpawnSkillGem();
                 }
             }
         }
@@ -123,6 +136,13 @@ namespace TwinPixels.LD47
         {
             _spawnersKilled++;
             UpdateScore();
+        }
+
+        private void SpawnSkillGem()
+        {
+            Vector2 spawnPoint = GetRandomPosition(spawnerZone);
+            var gem = Instantiate(skillGemPrefab);
+            gem.transform.position = spawnPoint;
         }
 
         private void UpdateScore()

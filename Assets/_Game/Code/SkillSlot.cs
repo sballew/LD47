@@ -32,7 +32,7 @@ namespace TwinPixels.LD47
 
             if (acceptsGem)
             {
-                StartCoroutine("AnimateRenderer");
+                StartCoroutine(nameof(AnimateRenderer));
             }
             
             SetSlotFill(startFilled);

@@ -959,7 +959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8660066489680841885, guid: 1ec9237e4509f7043b26a35d35c33931, type: 3}
       propertyPath: startFilled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ec9237e4509f7043b26a35d35c33931, type: 3}
@@ -1204,6 +1204,8 @@ MonoBehaviour:
   healthAttackerSpawnerPrefab: {fileID: 2527170587384080207, guid: 59c7498904692574d9b48ce851be5692, type: 3}
   skillThiefSpawnerPrefab: {fileID: 2527170587384080207, guid: 49def5022bb1f9a42b8dbc81e355a822, type: 3}
   spawnerZone: {fileID: 1527353349}
+  skillGemSpawnInterval: 15
+  skillGemPrefab: {fileID: 433184002, guid: 862a4d68bd7cf024e96c7617e9752a0a, type: 3}
   isPlayerCarryingGem: 0
   player: {fileID: 0}
   scoreText: {fileID: 1178582392}
@@ -2553,11 +2555,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118971754984064557, guid: 862a4d68bd7cf024e96c7617e9752a0a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.68
+      value: 7.84
       objectReference: {fileID: 0}
     - target: {fileID: 4118971754984064557, guid: 862a4d68bd7cf024e96c7617e9752a0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.58
       objectReference: {fileID: 0}
     - target: {fileID: 4118971754984064557, guid: 862a4d68bd7cf024e96c7617e9752a0a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2604,6 +2606,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1850912165779215545, guid: 006095c4a758e804fab2557bc4ff0616, type: 3}
+      propertyPath: _attackInterval
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5777418343983721633, guid: 006095c4a758e804fab2557bc4ff0616, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.236

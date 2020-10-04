@@ -10,9 +10,7 @@
 
 ## To-Do
 
-- Add 'skill gem thief' bug
 - Add skill gem spawning
-- Add Lives HUD
 - Add death state
 - Spawn key and door when upgrades are complete
 - Unlock door with key
