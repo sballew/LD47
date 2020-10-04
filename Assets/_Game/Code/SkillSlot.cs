@@ -15,6 +15,9 @@ namespace TwinPixels.LD47
         [SerializeField]
         private SkillSlotType _skillSlotType;
 
+        public bool startFilled = false;
+        public bool acceptsGem = true;
+        
         private bool _indicatorShown = false;
 
         private Vector3 _indicatorStartPosition;
@@ -24,16 +27,22 @@ namespace TwinPixels.LD47
         {
             _indicatorStartPosition = _indicatorSpriteRenderer.transform.localPosition;
             _indicatorEndPosition = new Vector3(_indicatorStartPosition.x + .05f, _indicatorStartPosition.y + .05f, _indicatorStartPosition.z);
-            StartCoroutine("AnimateRenderer");
+
+            if (acceptsGem)
+            {
+                StartCoroutine("AnimateRenderer");
+            }
+            
+            SetSlotFill(startFilled);
         }
 
         private void Update()
         {
-            if (GameManager.Instance.isPlayerCarryingGem && !_indicatorShown)
+            if (acceptsGem && GameManager.Instance.isPlayerCarryingGem && !_indicatorShown)
             {
                 ShowIndicator();
             }
-            else if (_indicatorShown && !GameManager.Instance.isPlayerCarryingGem)
+            else if (acceptsGem && _indicatorShown && !GameManager.Instance.isPlayerCarryingGem)
             {
                 HideIndicator();
             }

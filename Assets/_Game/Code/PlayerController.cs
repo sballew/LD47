@@ -34,7 +34,7 @@ namespace TwinPixels.LD47
             get { return _motor; }
         }
 
-        private void Start()
+        private void Awake()
         {
             _motor = GetComponent<CharacterMotor>();
             _animator = GetComponentInChildren<Animator>();

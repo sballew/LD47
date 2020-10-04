@@ -5,15 +5,19 @@
 
 ## Polish Tasks
 
-- Shimmer animation on skill gem
+- Intro splash screen
+- Intro text
 
 ## To-Do
 
-- Add HUD elements
-  - Skill upgrades
-- Define combat and skill upgrades
-- Add character controller
-- Add skill gem pickups
+- Add 'skill gem thief' bug
+- Add skill gem spawning
+- Add Lives HUD
+- Add death state
+- Spawn key and door when upgrades are complete
+- Unlock door with key
+- Shows 'thanks for playing'
+  - Dance animation
 
 ## Bugs
 
