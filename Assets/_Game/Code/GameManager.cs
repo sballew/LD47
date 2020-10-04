@@ -278,6 +278,11 @@ namespace TwinPixels.LD47
         private void GameOver()
         {
             StopSpawners();
+            
+            player.DropGem();
+            player.DropKey();
+            
+            
             var spawners = FindObjectsOfType<BugSpawner>();
             foreach (var spawner in spawners)
             {

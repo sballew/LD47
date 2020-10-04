@@ -75,11 +75,11 @@ namespace TwinPixels.LD47
 
             _motor.CurrentInput = input;
 
-            if (input.Interact && _canPickupGem)
+            if (input.Interact && _canPickupGem && !GameManager.Instance.isPlayerCarryingGem && !GameManager.Instance.isPlayerCarryingKey)
             {
                 PickupGem();
             }
-            else if (input.Interact && _canPickupKey)
+            else if (input.Interact && _canPickupKey && !GameManager.Instance.isPlayerCarryingGem && !GameManager.Instance.isPlayerCarryingKey)
             {
                 PickupKey();
             }
@@ -156,14 +156,14 @@ namespace TwinPixels.LD47
             Destroy(_keyToPickup.gameObject);
         }
 
-        private void DropGem()
+        public void DropGem()
         {
             GameManager.Instance.isPlayerCarryingGem = false;
             _gemCarrySpriteRenderer.enabled = false;
             _animator.SetBool("Carrying", false);
         }
         
-        private void DropKey()
+        public void DropKey()
         {
             GameManager.Instance.isPlayerCarryingKey = false;
             _keyCarrySpriteRenderer.enabled = false;
