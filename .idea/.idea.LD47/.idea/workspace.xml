@@ -20,10 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de0908c-24db-4879-a6c9-de455dcad74a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Music/Win.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Music/Win.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/Door.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/Hudson.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/HudsonAnimController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/HudsonAnimController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Props/Door.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Props/Door.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Props/Key.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Props/Key.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +66,10 @@
         <option value="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BlinkText.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugProjectile.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/Door.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/Key.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/Door.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" />
       </list>
     </option>
   </component>

@@ -59,6 +59,11 @@ namespace TwinPixels.LD47
             _animator = GetComponentInChildren<Animator>();
         }
 
+        public void Celebrate()
+        {
+            _animator.SetTrigger("Celebrate");
+        }
+
         private void Update()
         {
             PlayerInput input = new PlayerInput()
@@ -135,6 +140,7 @@ namespace TwinPixels.LD47
         {
             DropGem();
             _skillSlot.SetSlotFill(true);
+            GameManager.Instance.OnGemPlaced();
         }
 
         private void PickupGem()

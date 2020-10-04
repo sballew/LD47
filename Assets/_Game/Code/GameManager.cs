@@ -16,6 +16,11 @@ namespace TwinPixels.LD47
         public AudioClip MusicLose;
 
         [SerializeField]
+        private GameObject _keySpawnPoint;
+
+        [SerializeField] private Key _keyPrefab;
+
+        [SerializeField]
         private AudioSource _musicSource;
 
         public AudioSource hudHitSoundSource;
@@ -32,6 +37,7 @@ namespace TwinPixels.LD47
         [SerializeField] private BoxCollider2D spawnerZone;
 
         [SerializeField] private GameObject gameOverVisual;
+        [SerializeField] private GameObject gameWinVisual;
 
         private bool _spawnersActive = false;
         
@@ -170,6 +176,33 @@ namespace TwinPixels.LD47
             }
         }
 
+        public void OnGemPlaced()
+        {
+            // See if all slots are filled
+            foreach (var upgradeSlot in UpgradeSlots)
+            {
+                if (!upgradeSlot.IsFilled)
+                {
+                    return;
+                }
+            }
+            
+            // All slots filled.
+            StartCoroutine(nameof(SpawnKey));
+        }
+
+        private IEnumerator SpawnKey()
+        {
+            if (isPlayerCarryingKey || FindObjectOfType<Key>() != null)
+            {
+                yield return null;
+            }
+            
+            yield return new WaitForSeconds(2f);
+            var key = Instantiate(_keyPrefab);
+            key.transform.position = _keySpawnPoint.transform.position;
+        }
+
         public void OnBugKilled()
         {
             _bugsKilled++;
@@ -274,6 +307,56 @@ namespace TwinPixels.LD47
             maskScaler.localScale = new Vector3(_currentHealth / 100f, 1,
                 1);
         }
+
+        public void WinTheGame()
+        {
+            StopSpawners();
+            
+            player.DropGem();
+            player.DropKey();
+            
+            
+            var spawners = FindObjectsOfType<BugSpawner>();
+            foreach (var spawner in spawners)
+            {
+                Destroy(spawner.gameObject);
+            }
+
+            var bugs = FindObjectsOfType<Bug>();
+            foreach (var bug in bugs)
+            {
+                Destroy(bug.gameObject);
+            }
+
+            var projectiles = FindObjectsOfType<BugProjectile>();
+            foreach (var projectile in projectiles)
+            {
+                Destroy(projectile.gameObject);
+            }
+            
+            var gems = FindObjectsOfType<SkillGem>();
+            foreach (var gem in gems)
+            {
+                Destroy(gem.gameObject);
+            }
+            
+            gameWinVisual.SetActive(true);
+            
+            _musicSource.Stop();
+            
+            player.Celebrate();
+
+            StartCoroutine(nameof(PlayVictory));
+        }
+        private IEnumerator PlayVictory()
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            _musicSource.loop = false;
+            _musicSource.clip = MusicWin;
+            _musicSource.Play();
+        }
+        
 
         private void GameOver()
         {
