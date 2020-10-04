@@ -8,7 +8,6 @@ namespace TwinPixels.LD47
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Key trigger: " + other.gameObject.name);
             if (other.CompareTag("Player"))
             {
                 _pickupIndicator.enabled = true;

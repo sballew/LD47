@@ -10,7 +10,6 @@ namespace TwinPixels.LD47
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Projectile triggered with " + other.gameObject.name);
             // GetComponent<AudioSource>().PlayOneShot(_audioHitSound, .1f);
             // AudioSource.PlayClipAtPoint(_audioHitSound, Camera.main.transform.position, .2f);
             GameManager.Instance.hudHitSoundSource.Play();

@@ -80,7 +80,6 @@ namespace TwinPixels.LD47
 
                 if (isAtPosition)
                 {
-                    Debug.Log("Arrived at target position");
                     OnArrivedAtPosition();
                 }
             }
@@ -95,7 +94,7 @@ namespace TwinPixels.LD47
                     case BugType.SkillStealer:
                         break;
                     default:
-                        Debug.Log("Bug type not implemented: " + _bugType);
+                        Debug.LogWarning("Bug type not implemented: " + _bugType);
                         break;
                 }
             }

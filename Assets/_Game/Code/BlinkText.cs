@@ -12,7 +12,6 @@ namespace TwinPixels.LD47
         private void Awake()
         {
             text = GetComponent<TextMeshPro>();
-            Debug.Log("Start blink: " + text);
         }
 
         private void OnEnable()
@@ -27,7 +26,6 @@ namespace TwinPixels.LD47
 
         private IEnumerator Blink()
         {
-            Debug.Log("Blinking");
             yield return new WaitForSeconds(1f);
             text.enabled = false;
             yield return new WaitForSeconds(.75f);
