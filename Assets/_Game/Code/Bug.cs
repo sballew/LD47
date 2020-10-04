@@ -31,6 +31,12 @@ namespace TwinPixels.LD47
 
         private SpriteRenderer _spriteRenderer;
 
+        private SkillSlot _skillToSteal;
+
+        [SerializeField] private SpriteRenderer _carriedGem;
+
+        [SerializeField] private SkillGem _gemPrefab;
+
         private void Awake()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -47,16 +53,16 @@ namespace TwinPixels.LD47
             else if (_bugType == BugType.SkillStealer)
             {
                 // Pick a skill
-                SkillSlot skillToSteal = GameManager.Instance.GetRandomFilledSkill();
+                _skillToSteal = GameManager.Instance.GetRandomFilledSkill();
                 
-                if (skillToSteal == null)
+                if (_skillToSteal == null)
                 {
                     // Nothing to do.
                     Destroy(this.gameObject);
                     return;
                 }
 
-                _moveToPosition = skillToSteal.transform.position + (Vector3.up * 1.5f);
+                _moveToPosition = _skillToSteal.transform.position + (Vector3.up * 1.5f);
             }
         }
 
@@ -73,6 +79,7 @@ namespace TwinPixels.LD47
                 if (isAtPosition)
                 {
                     Debug.Log("Arrived at target position");
+                    OnArrivedAtPosition();
                 }
             }
 
@@ -83,10 +90,34 @@ namespace TwinPixels.LD47
                     case BugType.HealthAttacker:
                         UpdateHealthAttacker();
                         break;
+                    case BugType.SkillStealer:
+                        break;
                     default:
                         Debug.Log("Bug type not implemented: " + _bugType);
                         break;
                 }
+            }
+        }
+
+        private void OnArrivedAtPosition()
+        {
+            if (_bugType == BugType.SkillStealer)
+            {
+                StartCoroutine(nameof(StealSkill));
+            }
+        }
+
+        private IEnumerator StealSkill()
+        {
+            yield return new WaitForSeconds(1f);
+            if (!_skillToSteal.IsFilled)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                _skillToSteal.SetSlotFill(false);
+                _carriedGem.enabled = true;
             }
         }
 
@@ -121,6 +152,13 @@ namespace TwinPixels.LD47
             else
             {
                 GameManager.Instance.OnBugKilled();
+                if (_carriedGem != null && _carriedGem.enabled)
+                {
+                    // Drop the gem
+                    var droppedGem = Instantiate(_gemPrefab);
+                    droppedGem.transform.position = this.transform.position;
+                }
+                
                 Destroy(this.gameObject);
             }
         }

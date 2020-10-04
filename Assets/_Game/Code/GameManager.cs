@@ -26,7 +26,7 @@ namespace TwinPixels.LD47
         
         private int _currentHealth = 100;
 
-        private float _skillThiefSpawnerChance = .8f;
+        private float _skillThiefSpawnerChance = .25f;
 
         private int _spawnersKilled = 0;
         private int _bugsKilled = 0;
@@ -34,7 +34,7 @@ namespace TwinPixels.LD47
         private int _playerLivesLeft = 3;
         
         private int _spawnersCreatedSoFar = 0;
-        private float _spawnerCurrentInterval = 4f;
+        private float _spawnerCurrentInterval = 5f;
         private float _lastSpawnerTime = Mathf.NegativeInfinity;
 
         public bool isPlayerCarryingGem = false;
