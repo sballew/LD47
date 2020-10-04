@@ -10,6 +10,15 @@ namespace TwinPixels.LD47
     public class GameManager : MonoBehaviour
     {
         public bool SpawnOnStart = true;
+
+        public AudioClip MusicGameplay;
+        public AudioClip MusicWin;
+        public AudioClip MusicLose;
+
+        [SerializeField]
+        private AudioSource _musicSource;
+
+        public AudioSource hudHitSoundSource;
         
         public BoxCollider2D healthAttackFromZone;
         public BoxCollider2D healthAttackTargetZone;
@@ -40,7 +49,7 @@ namespace TwinPixels.LD47
         
         private int _spawnersCreatedSoFar = 0;
         private float _spawnerCurrentInterval = 5f;
-        private float _lastSpawnerTime = 2f;
+        private float _lastSpawnerTime = -2f;
         private float _doubleSpawnerChance = .15f;
 
         private float skillGemSpawnInterval = 23f;
@@ -97,6 +106,10 @@ namespace TwinPixels.LD47
             }
             
             gameOverVisual.SetActive(false);
+
+            _musicSource.loop = true;
+            _musicSource.clip = MusicGameplay;
+            _musicSource.Play();
 
         }
 
@@ -267,16 +280,70 @@ namespace TwinPixels.LD47
             var spawners = FindObjectsOfType<BugSpawner>();
             foreach (var spawner in spawners)
             {
-                DestroyImmediate(spawner.gameObject);
+                Destroy(spawner.gameObject);
             }
 
             var bugs = FindObjectsOfType<Bug>();
             foreach (var bug in bugs)
             {
-                DestroyImmediate(bug.gameObject);
+                Destroy(bug.gameObject);
+            }
+
+            var projectiles = FindObjectsOfType<BugProjectile>();
+            foreach (var projectile in projectiles)
+            {
+                Destroy(projectile.gameObject);
+            }
+            
+            var gems = FindObjectsOfType<SkillGem>();
+            foreach (var gem in gems)
+            {
+                Destroy(gem.gameObject);
             }
             
             gameOverVisual.SetActive(true);
+            
+            _musicSource.Stop();
+
+            StartCoroutine("RestartGame");
+        }
+
+        private IEnumerator RestartGame()
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            _musicSource.loop = false;
+            _musicSource.clip = MusicLose;
+            _musicSource.Play();
+            
+            yield return new WaitForSeconds(4.5f);
+            gameOverVisual.SetActive(false);
+            
+            _musicSource.loop = true;
+            _musicSource.clip = MusicGameplay;
+            _musicSource.Play();
+
+            _currentHealth = 100;
+            _playerLivesLeft = 3;
+            UpdateLivesRemainingSlots();
+            
+            Transform maskScaler = healthBarMask.transform.parent;
+            maskScaler.localScale = new Vector3(_currentHealth / 100f, 1,
+                1);
+
+            foreach (var slot in UpgradeSlots)
+            {
+                slot.SetSlotFill(false);
+            }
+
+            _bugsKilled = 0;
+            _spawnersKilled = 0;
+            UpdateScore();
+
+            lastSkillGemSpawn = Time.time - 13f;
+            _lastSpawnerTime = Time.time - 2f;
+            
+            StartSpawners();
         }
 
         private void UpdateLivesRemainingSlots()

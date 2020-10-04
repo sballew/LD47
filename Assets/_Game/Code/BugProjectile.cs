@@ -12,7 +12,8 @@ namespace TwinPixels.LD47
         {
             Debug.Log("Projectile triggered with " + other.gameObject.name);
             // GetComponent<AudioSource>().PlayOneShot(_audioHitSound, .1f);
-            AudioSource.PlayClipAtPoint(_audioHitSound, Camera.main.transform.position, .2f);
+            // AudioSource.PlayClipAtPoint(_audioHitSound, Camera.main.transform.position, .2f);
+            GameManager.Instance.hudHitSoundSource.Play();
             Destroy(gameObject);
 
             if (other.gameObject.CompareTag("Health HUD"))

@@ -163,7 +163,7 @@ namespace TwinPixels.LD47
             attackObj.transform.Translate(Vector3.right * _attackDistanceOffset, Space.Self);
             attackObj.transform.RotateAround(transform.position, Vector3.forward, angleDeg);
             
-            AudioSource.PlayClipAtPoint(_attackSound, Camera.main.transform.position, .5f);
+            AudioSource.PlayClipAtPoint(_attackSound, Camera.main.transform.position, .6f);
             
             Destroy(attackObj, .2f);
         }
