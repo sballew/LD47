@@ -36,6 +36,7 @@ namespace TwinPixels.LD47
             _health--;
             if (_health <= 0)
             {
+                GameManager.Instance.OnSpawnerKilled();
                 Destroy(gameObject);
                 return;
             }

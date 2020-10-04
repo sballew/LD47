@@ -19,6 +19,7 @@
             <e p="PickupIndicator.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerInput.cs" t="Include" />
+            <e p="RepeatingAnimation.cs" t="Include" />
             <e p="SkillGem.cs" t="Include" />
             <e p="SkillSlot.cs" t="Include" />
             <e p="SkillSlotType.cs" t="Include" />

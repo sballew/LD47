@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,6 +22,9 @@ namespace TwinPixels.LD47
         
         private int _currentHealth = 100;
 
+        private int _spawnersKilled = 0;
+        private int _bugsKilled = 0;
+        
         private int _spawnersCreatedSoFar = 0;
         private float _spawnerCurrentInterval = 4f;
         private float _lastSpawnerTime = Mathf.NegativeInfinity;
@@ -28,6 +32,8 @@ namespace TwinPixels.LD47
         public bool isPlayerCarryingGem = false;
 
         public PlayerController player;
+
+        public TextMeshPro scoreText;
 
         public static GameManager Instance { get; private set; }
 
@@ -65,6 +71,24 @@ namespace TwinPixels.LD47
                     }
                 }
             }
+        }
+
+        public void OnBugKilled()
+        {
+            _bugsKilled++;
+            UpdateScore();
+        }
+
+        public void OnSpawnerKilled()
+        {
+            _spawnersKilled++;
+            UpdateScore();
+        }
+
+        private void UpdateScore()
+        {
+            int score = _bugsKilled + (_spawnersKilled * 10);
+            scoreText.text = $"{score:n0}";
         }
 
         private void CreateNewSpawner()

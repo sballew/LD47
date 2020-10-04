@@ -106,6 +106,7 @@ namespace TwinPixels.LD47
             }
             else
             {
+                GameManager.Instance.OnBugKilled();
                 Destroy(this.gameObject);
             }
         }
