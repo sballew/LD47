@@ -22,6 +22,8 @@ namespace TwinPixels.LD47
 
         private Vector3 _indicatorStartPosition;
         private Vector3 _indicatorEndPosition;
+        
+        public bool IsFilled => _fillRenderer.enabled;
 
         private void Start()
         {

@@ -44,6 +44,20 @@ namespace TwinPixels.LD47
                 _moveToPosition = GetRandomPosition(GameManager.Instance.healthAttackFromZone);
                 _attackTargetPosition = GetRandomPosition(GameManager.Instance.healthAttackTargetZone);
             }
+            else if (_bugType == BugType.SkillStealer)
+            {
+                // Pick a skill
+                SkillSlot skillToSteal = GameManager.Instance.GetRandomFilledSkill();
+                
+                if (skillToSteal == null)
+                {
+                    // Nothing to do.
+                    Destroy(this.gameObject);
+                    return;
+                }
+
+                _moveToPosition = skillToSteal.transform.position + (Vector3.up * 1.5f);
+            }
         }
 
         private void FixedUpdate()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -13,6 +14,8 @@ namespace TwinPixels.LD47
         public BoxCollider2D healthAttackFromZone;
         public BoxCollider2D healthAttackTargetZone;
 
+        public SkillSlot[] UpgradeSlots;
+
         [SerializeField] private SpriteMask healthBarMask;
 
         [SerializeField] private BugSpawner spawnerPrefab;
@@ -22,8 +25,12 @@ namespace TwinPixels.LD47
         
         private int _currentHealth = 100;
 
+        private float _skillThiefSpawnerChance = 0.1f;
+
         private int _spawnersKilled = 0;
         private int _bugsKilled = 0;
+
+        private int _playerLivesLeft = 3;
         
         private int _spawnersCreatedSoFar = 0;
         private float _spawnerCurrentInterval = 4f;
@@ -35,7 +42,28 @@ namespace TwinPixels.LD47
 
         public TextMeshPro scoreText;
 
+        public SkillSlot[] LifeSlotObjects;
+
         public static GameManager Instance { get; private set; }
+        
+        public SkillSlot GetRandomFilledSkill()
+        {
+            List<SkillSlot> filledSlots = new List<SkillSlot>();
+            for (int i = 0; i < UpgradeSlots.Length; i++)
+            {
+                if (UpgradeSlots[i].IsFilled)
+                {
+                    filledSlots.Add(UpgradeSlots[i]);
+                }
+            }
+
+            if (filledSlots.Count <= 0)
+            {
+                return null;
+            }
+
+            return filledSlots[Random.Range(0, filledSlots.Count)];
+        }
 
         private void Awake()
         {
@@ -43,6 +71,11 @@ namespace TwinPixels.LD47
             {
                 Destroy(this.gameObject);
                 return;
+            }
+
+            if (LifeSlotObjects == null || LifeSlotObjects.Length != 3)
+            {
+                throw new Exception("Life slot array must have 3 elements.");
             }
             
             Instance = this;
@@ -69,6 +102,12 @@ namespace TwinPixels.LD47
                         _spawnerCurrentInterval = Mathf.Max(_spawnerCurrentInterval - .25f, 2.5f);
                         Debug.Log("New spawner rate: " + _spawnerCurrentInterval);
                     }
+                    
+                    // See if we want to spawn a skill thief spawner as well
+                    if (Random.Range(0f, 1f) <= _skillThiefSpawnerChance)
+                    {
+                        CreateNewSpawner(BugType.SkillStealer);
+                    }
                 }
             }
         }
@@ -91,13 +130,15 @@ namespace TwinPixels.LD47
             scoreText.text = $"{score:n0}";
         }
 
-        private void CreateNewSpawner()
+        private void CreateNewSpawner(BugType bugType = BugType.HealthAttacker)
         {
             // Pick location
             Vector2 spawnerLocation = GetRandomPosition(spawnerZone);
             
             // Create spawner
             var spawner = Instantiate(spawnerPrefab);
+
+            spawner.bugType = bugType;
 
             spawner.transform.position = spawnerLocation;
 
@@ -126,8 +167,20 @@ namespace TwinPixels.LD47
             _currentHealth += amount;
             if (_currentHealth < 0)
             {
-                // Debug.Log("Player is dead");
+                Debug.Log("Player is dead");
                 _currentHealth = 0;
+                if (_playerLivesLeft <= 1)
+                {
+                    Debug.Log("No lives left. Player is DEAD DEAD.");
+                    _playerLivesLeft--;
+                    UpdateLivesRemainingSlots();
+                }
+                else
+                {
+                    _playerLivesLeft--;
+                    UpdateLivesRemainingSlots();
+                    _currentHealth = 100;
+                }
             }
             
             Transform maskScaler = healthBarMask.transform.parent;
@@ -135,7 +188,16 @@ namespace TwinPixels.LD47
             maskScaler.localScale = new Vector3(_currentHealth / 100f, 1,
                 1);
         }
-        
+
+        private void UpdateLivesRemainingSlots()
+        {
+            for (var i = 0; i < LifeSlotObjects.Length; i++)
+            {
+                // Fill slot if the player has this life available
+                bool fillSlot = _playerLivesLeft >= (i + 1);
+                LifeSlotObjects[i].SetSlotFill(fillSlot);
+            }
+        }
         
         public static Vector2 GetRandomPosition(BoxCollider2D zone)
         {

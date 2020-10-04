@@ -147,7 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b989ff48f94c4e1284d37de64a3dc419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugPrefab: {fileID: 9014774632008016717, guid: 2e730714112e77a4b8ce8cb41eecfebd, type: 3}
+  healthAttackerBugPrefab: {fileID: 9014774632008016717, guid: 2e730714112e77a4b8ce8cb41eecfebd, type: 3}
+  skillStealerBugPrefab: {fileID: 9014774632008016717, guid: 81fbcec05ff89e148bdae2eeed03e119, type: 3}
+  bugType: 0
 --- !u!61 &5624448416931547498
 BoxCollider2D:
   m_ObjectHideFlags: 0

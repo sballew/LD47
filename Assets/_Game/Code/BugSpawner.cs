@@ -7,7 +7,10 @@ namespace TwinPixels.LD47
 {
     public class BugSpawner : MonoBehaviour
     {
-        public Bug bugPrefab;
+        public Bug healthAttackerBugPrefab;
+        public Bug skillStealerBugPrefab;
+
+        public BugType bugType = BugType.HealthAttacker;
 
         private float _lastSpawnTime = 0f;
 
@@ -24,6 +27,10 @@ namespace TwinPixels.LD47
         private void Awake()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            if (bugType == BugType.SkillStealer)
+            {
+                _spawnInterval = 10f;
+            }
         }
 
         private void Start()
@@ -60,20 +67,36 @@ namespace TwinPixels.LD47
 
             _lastSpawnTime = Time.time;
 
-            for (var i = 0; i < _bugsToSpawn; i++)
+            int actualBugsToSpawn = bugType == BugType.HealthAttacker ? _bugsToSpawn : 1;
+
+            for (var i = 0; i < actualBugsToSpawn; i++)
             {
                 // Pick random angle
                 float angle = Random.Range(0, 360);
+
+                Bug bugPrefabToSpawn = null;
+                if (bugType == BugType.HealthAttacker)
+                {
+                    bugPrefabToSpawn = healthAttackerBugPrefab;
+                }
+                else if (bugType == BugType.SkillStealer)
+                {
+                    bugPrefabToSpawn = skillStealerBugPrefab;
+                }
+                else
+                {
+                    Debug.LogError("Unknown bug type for spawner: " + bugType);
+                }
                 
                 // Spawn bug
-                var bug = Instantiate(bugPrefab);
+                var bug = Instantiate(bugPrefabToSpawn);
 
                 // Position bug
                 var spawnVector = Quaternion.Euler(0, 0, angle) * Vector2.up * _spawnDistance;
                 var spawnPosition = transform.position + spawnVector;
                 
                 
-                Debug.DrawLine(transform.position, spawnPosition);
+                Debug.DrawLine(transform.position, spawnPosition, Color.green, 2f);
 
                 bug.transform.position = spawnPosition;
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9014774632008016717}
   - component: {fileID: 942233806}
   m_Layer: 11
-  m_Name: HealthAttackerBug
+  m_Name: SkillThiefBug
   m_TagString: Bug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c08a2b9acad4447a3b4bb242010c08d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bugType: 0
-  _speed: 2
+  _bugType: 1
+  _speed: 3
   _attackInterval: 1
   _attackProjectilePrefab: {fileID: -5028860000401200504, guid: e3754a387baaa1a4584dcceec7fcf4ac, type: 3}
   _projectileSpeed: 2.5
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5279203824658248110, guid: 0a3773a3c76744543afb55ce1c3e734c, type: 3}
+  m_Sprite: {fileID: 404588223363988752, guid: 119962f5208b59a4b89275414e21a759, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,7 +171,7 @@ Animator:
   m_GameObject: {fileID: 5509783001863743851}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: db3e872be61e790498a532f9a410aa9e, type: 2}
+  m_Controller: {fileID: 22100000, guid: fa24deb139d6b2f469d46bbd17b99e8f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
