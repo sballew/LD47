@@ -7,6 +7,8 @@ namespace TwinPixels.LD47
 {
     public class GameManager : MonoBehaviour
     {
+        public bool SpawnOnStart = true;
+        
         public BoxCollider2D healthAttackFromZone;
         public BoxCollider2D healthAttackTargetZone;
 
@@ -19,7 +21,8 @@ namespace TwinPixels.LD47
         
         private int _currentHealth = 100;
 
-        private float _spawnerCurrentInterval = 5f;
+        private int _spawnersCreatedSoFar = 0;
+        private float _spawnerCurrentInterval = 4f;
         private float _lastSpawnerTime = Mathf.NegativeInfinity;
 
         public bool isPlayerCarryingGem = false;
@@ -38,7 +41,10 @@ namespace TwinPixels.LD47
             
             Instance = this;
             player = FindObjectOfType<PlayerController>();
-            StartSpawners();
+            if (SpawnOnStart)
+            {
+                StartSpawners();
+            }
         }
 
         private void Update()
@@ -49,6 +55,14 @@ namespace TwinPixels.LD47
                 {
                     _lastSpawnerTime = Time.time;
                     CreateNewSpawner();
+                    _spawnersCreatedSoFar++;
+
+                    // Every 6 spawners, increase the rate of new spawners.
+                    if (_spawnersCreatedSoFar % 6 == 0)
+                    {
+                        _spawnerCurrentInterval = Mathf.Max(_spawnerCurrentInterval - .25f, 2.5f);
+                        Debug.Log("New spawner rate: " + _spawnerCurrentInterval);
+                    }
                 }
             }
         }

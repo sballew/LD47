@@ -12,6 +12,9 @@ namespace TwinPixels.LD47
         [SerializeField]
         private SpriteRenderer _fillRenderer;
 
+        [SerializeField]
+        private SkillSlotType _skillSlotType;
+
         private bool _indicatorShown = false;
 
         private Vector3 _indicatorStartPosition;
@@ -39,6 +42,12 @@ namespace TwinPixels.LD47
         public void SetSlotFill(bool fill)
         {
             _fillRenderer.enabled = fill;
+            switch (_skillSlotType)
+            {
+                case SkillSlotType.Boots:
+                    GameManager.Instance.player.Motor.SpeedBootsEnabled = fill;
+                    break;
+            }
         }
 
         private IEnumerator AnimateRenderer()

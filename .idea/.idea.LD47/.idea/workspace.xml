@@ -20,11 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de0908c-24db-4879-a6c9-de455dcad74a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/SkillSlotType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Code/SkillSlotType.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD47/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/BugSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/BugSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/SkillSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/SkillSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/HUD/SkillSlot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/HUD/SkillSlot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Hudson/HudsonAnimController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Hudson/HudsonAnimController.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +49,6 @@
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SampleOne.cs" />
         <option value="$PROJECT_DIR$/Assets/AsepriteAnimationWorkflow/Editor/AsepriteImporterSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/PickupIndicator.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugType.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/Projectile.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugProjectile.cs" />
@@ -52,10 +56,12 @@
         <option value="$PROJECT_DIR$/Assets/_Game/Code/DamageOnHit.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillGem.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillSlotType.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillSlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillSlot.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -186,13 +192,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs</url>
-          <line>47</line>
+          <line>53</line>
           <properties documentPath="E:\gamedev\game-jams\LD47\Assets\_Game\Code\GameManager.cs" initialLine="42">
             <startOffsets>
-              <option value="1263" />
+              <option value="1422" />
             </startOffsets>
             <endOffsets>
-              <option value="1323" />
+              <option value="1482" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

@@ -21,6 +21,7 @@
             <e p="PlayerInput.cs" t="Include" />
             <e p="SkillGem.cs" t="Include" />
             <e p="SkillSlot.cs" t="Include" />
+            <e p="SkillSlotType.cs" t="Include" />
           </e>
           <e p="LD47.asmdef" t="Include" />
         </e>

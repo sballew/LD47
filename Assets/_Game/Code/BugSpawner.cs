@@ -11,7 +11,7 @@ namespace TwinPixels.LD47
 
         private float _lastSpawnTime = 0f;
 
-        private float _spawnInterval = 3f;
+        private float _spawnInterval = 2.5f;
 
         private int _bugsToSpawn = 2;
 
@@ -19,7 +19,7 @@ namespace TwinPixels.LD47
 
         private SpriteRenderer _spriteRenderer;
 
-        private int _health = 5;
+        private int _health = 4;
 
         private void Awake()
         {

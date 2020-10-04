@@ -28,6 +28,11 @@ namespace TwinPixels.LD47
 
         private bool _canPlaceGem;
         private SkillSlot _skillSlot;
+        
+        public CharacterMotor Motor
+        {
+            get { return _motor; }
+        }
 
         private void Start()
         {

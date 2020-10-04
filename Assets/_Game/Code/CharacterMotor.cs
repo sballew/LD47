@@ -16,6 +16,10 @@ namespace TwinPixels.LD47
         [Header("Movement")]
         [SerializeField] private float speed = 1f;
 
+        private float _speedBootsMultiplier = 1.35f;
+        
+        public bool SpeedBootsEnabled;
+
         public PlayerInput CurrentInput;
 
         private Rigidbody2D _rigidbody2D;
@@ -60,7 +64,7 @@ namespace TwinPixels.LD47
             
             
             
-            _rigidbody2D.velocity = direction.normalized * speed;
+            _rigidbody2D.velocity = direction.normalized * (speed * (SpeedBootsEnabled ? _speedBootsMultiplier : 1));
             
              bool previousFacing = _facingRight;
             
