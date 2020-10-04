@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8de0908c-24db-4879-a6c9-de455dcad74a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8de0908c-24db-4879-a6c9-de455dcad74a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +47,6 @@
         <option value="$PROJECT_DIR$/Assets/_Game/Code/ArrowProjectile.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillGem.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/CharacterMotor.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Game/Code/BugSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/SkillSlot.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/AnimateIndicator.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/Door.cs" />
@@ -60,6 +57,7 @@
         <option value="$PROJECT_DIR$/Assets/_Game/Code/Bug.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/BugProjectile.cs" />
         <option value="$PROJECT_DIR$/Assets/_Game/Code/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Game/Code/BugSpawner.cs" />
       </list>
     </option>
   </component>
