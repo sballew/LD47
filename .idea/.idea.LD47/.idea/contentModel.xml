@@ -11,6 +11,7 @@
           <e p="Code" t="Include">
             <e p="AnimateIndicator.cs" t="Include" />
             <e p="ArrowProjectile.cs" t="Include" />
+            <e p="BlinkText.cs" t="Include" />
             <e p="Bug.cs" t="Include" />
             <e p="BugProjectile.cs" t="Include" />
             <e p="BugSpawner.cs" t="Include" />

@@ -22,6 +22,8 @@ namespace TwinPixels.LD47
         [SerializeField] private BugSpawner skillThiefSpawnerPrefab;
         [SerializeField] private BoxCollider2D spawnerZone;
 
+        [SerializeField] private GameObject gameOverVisual;
+
         private bool _spawnersActive = false;
         
         private int _currentHealth = 100;
@@ -32,6 +34,9 @@ namespace TwinPixels.LD47
         private int _bugsKilled = 0;
 
         private int _playerLivesLeft = 3;
+
+        [SerializeField]
+        private int _maxSpawners = 6;
         
         private int _spawnersCreatedSoFar = 0;
         private float _spawnerCurrentInterval = 5f;
@@ -90,6 +95,9 @@ namespace TwinPixels.LD47
             {
                 StartSpawners();
             }
+            
+            gameOverVisual.SetActive(false);
+
         }
 
         private void Update()
@@ -99,27 +107,38 @@ namespace TwinPixels.LD47
                 if (Time.time - _lastSpawnerTime >= _spawnerCurrentInterval)
                 {
                     _lastSpawnerTime = Time.time;
-                    CreateNewSpawner();
-                    _spawnersCreatedSoFar++;
-
-                    if (_spawnersCreatedSoFar == 3 || (_spawnersCreatedSoFar > 3 && Random.Range(0f, 1f) <= _doubleSpawnerChance))
-                    {
-                        CreateNewSpawner();
-                    }
-
-                    // Every 6 spawners, increase the rate of new spawners.
-                    if (_spawnersCreatedSoFar % 5 == 0)
-                    {
-                        _spawnerCurrentInterval = Mathf.Max(_spawnerCurrentInterval - .25f, 2.5f);
-                        Debug.Log("New spawner rate: " + _spawnerCurrentInterval);
-                    }
                     
-                    // See if we want to spawn a skill thief spawner as well
-                    if (Random.Range(0f, 1f) <= _skillThiefSpawnerChance)
+                    
+                    int activeSpawners = FindObjectsOfType<BugSpawner>().Length;
+                    Debug.Log("Current spawners: " + activeSpawners);
+
+
+                    if (activeSpawners < _maxSpawners)
                     {
-                        if (GetRandomFilledSkill() != null)
+                                            
+                        CreateNewSpawner();
+                        _spawnersCreatedSoFar++;
+                        
+                        Debug.Log("Creating spawner");
+                        if (_spawnersCreatedSoFar == 3 || (_spawnersCreatedSoFar > 3 && Random.Range(0f, 1f) <= _doubleSpawnerChance))
                         {
-                            CreateNewSpawner(BugType.SkillStealer);
+                            CreateNewSpawner();
+                        }
+
+                        // Every 6 spawners, increase the rate of new spawners.
+                        if (_spawnersCreatedSoFar % 5 == 0)
+                        {
+                            _spawnerCurrentInterval = Mathf.Max(_spawnerCurrentInterval - .25f, 2.5f);
+                            Debug.Log("New spawner rate: " + _spawnerCurrentInterval);
+                        }
+                    
+                        // See if we want to spawn a skill thief spawner as well
+                        if (Random.Range(0f, 1f) <= _skillThiefSpawnerChance)
+                        {
+                            if (GetRandomFilledSkill() != null)
+                            {
+                                CreateNewSpawner(BugType.SkillStealer);
+                            }
                         }
                     }
                 }
@@ -127,7 +146,12 @@ namespace TwinPixels.LD47
                 if (Time.time - lastSkillGemSpawn >= skillGemSpawnInterval)
                 {
                     lastSkillGemSpawn = Time.time;
-                    SpawnSkillGem();
+
+                    int activeGems = FindObjectsOfType<SkillGem>().Length;
+                    if (activeGems < 2)
+                    {
+                        SpawnSkillGem();    
+                    }
                 }
             }
         }
@@ -199,8 +223,15 @@ namespace TwinPixels.LD47
 
         private void StartSpawners()
         {
+            Debug.Log("Starting spawners");
             _spawnersActive = true;
         }
+        
+        private void StopSpawners()
+        {
+            _spawnersActive = false;
+        }
+
 
         public void ModifyHealth(int amount)
         {
@@ -214,6 +245,7 @@ namespace TwinPixels.LD47
                     Debug.Log("No lives left. Player is DEAD DEAD.");
                     _playerLivesLeft--;
                     UpdateLivesRemainingSlots();
+                    GameOver();
                 }
                 else
                 {
@@ -227,6 +259,24 @@ namespace TwinPixels.LD47
             
             maskScaler.localScale = new Vector3(_currentHealth / 100f, 1,
                 1);
+        }
+
+        private void GameOver()
+        {
+            StopSpawners();
+            var spawners = FindObjectsOfType<BugSpawner>();
+            foreach (var spawner in spawners)
+            {
+                DestroyImmediate(spawner.gameObject);
+            }
+
+            var bugs = FindObjectsOfType<Bug>();
+            foreach (var bug in bugs)
+            {
+                DestroyImmediate(bug.gameObject);
+            }
+            
+            gameOverVisual.SetActive(true);
         }
 
         private void UpdateLivesRemainingSlots()
