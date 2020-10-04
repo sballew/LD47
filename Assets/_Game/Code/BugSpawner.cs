@@ -21,6 +21,7 @@ namespace TwinPixels.LD47
 
         private SpriteRenderer _spriteRenderer;
 
+        [SerializeField]
         private int _health = 4;
 
         private void Awake()

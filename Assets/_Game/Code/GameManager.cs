@@ -138,15 +138,15 @@ namespace TwinPixels.LD47
                         CreateNewSpawner();
                         _spawnersCreatedSoFar++;
                         
-                        if (_spawnersCreatedSoFar == 3 || (_spawnersCreatedSoFar > 3 && Random.Range(0f, 1f) <= _doubleSpawnerChance))
+                        if (_spawnersCreatedSoFar == 2 || (_spawnersCreatedSoFar > 2 && Random.Range(0f, 1f) <= _doubleSpawnerChance))
                         {
                             CreateNewSpawner();
                         }
 
-                        // Every 6 spawners, increase the rate of new spawners.
-                        if (_spawnersCreatedSoFar % 5 == 0)
+                        // Every X spawners, increase the rate of new spawners.
+                        if (_spawnersCreatedSoFar % 4 == 0)
                         {
-                            _spawnerCurrentInterval = Mathf.Max(_spawnerCurrentInterval - .25f, 2.5f);
+                            _spawnerCurrentInterval = Mathf.Max(_spawnerCurrentInterval - .4f, 2f);
                         }
                     
                         // See if we want to spawn a skill thief spawner as well

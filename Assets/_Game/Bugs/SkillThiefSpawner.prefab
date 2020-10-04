@@ -152,6 +152,7 @@ MonoBehaviour:
   _spawnInterval: 7
   _bugsToSpawn: 1
   _spawnDistance: 1.5
+  _health: 8
 --- !u!61 &5624448416931547498
 BoxCollider2D:
   m_ObjectHideFlags: 0
