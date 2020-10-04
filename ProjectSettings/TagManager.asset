@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Health HUD
+  - Bug
+  - Spawner
+  - SkillGem
+  - SkillSlot
   layers:
   - Default
   - TransparentFX

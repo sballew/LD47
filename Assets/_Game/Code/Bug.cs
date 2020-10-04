@@ -93,7 +93,7 @@ namespace TwinPixels.LD47
             
             Destroy(projectile, 5f);
             
-            AudioSource.PlayClipAtPoint(_projectileShootSound, Camera.main.transform.position, .1f);
+            AudioSource.PlayClipAtPoint(_projectileShootSound, Camera.main.transform.position, .2f);
 
         }
 

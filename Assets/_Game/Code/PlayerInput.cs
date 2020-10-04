@@ -11,6 +11,6 @@ namespace TwinPixels.LD47
 
         public bool Attack;
 
-        public Vector2 Facing;
+        public bool Interact;
     }
 }

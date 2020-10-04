@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 540715774900928858}
   m_Layer: 0
   m_Name: HealthBarHUD
-  m_TagString: Untagged
+  m_TagString: Health HUD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ Transform:
   m_Children:
   - {fileID: 540715773265277736}
   - {fileID: 540715775286889529}
-  - {fileID: 540715775229112208}
+  - {fileID: 6529634971878582490}
   - {fileID: 1928503244}
   - {fileID: 3452682727191314935}
   m_Father: {fileID: 0}
@@ -198,12 +198,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540715775229112209}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57050014, y: -0.033899885, z: 0}
-  m_LocalScale: {x: 4.7345595, y: 0.38093397, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.397, y: -0.033899784, z: 0}
+  m_LocalScale: {x: 4.7165685, y: 0.38093397, z: 1}
   m_Children: []
-  m_Father: {fileID: 540715774900928858}
-  m_RootOrder: 2
+  m_Father: {fileID: 6529634971878582490}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &540715775229112223
 SpriteMask:
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 756951497530318078}
   m_Layer: 9
   m_Name: HealthDamageArea
-  m_TagString: Untagged
+  m_TagString: Health HUD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,3 +421,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.084977, y: 0.6866641}
   m_EdgeRadius: 0
+--- !u!1 &6470289849297796534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6529634971878582490}
+  m_Layer: 0
+  m_Name: FillPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6529634971878582490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470289849297796534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.807, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 540715775229112208}
+  m_Father: {fileID: 540715774900928858}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

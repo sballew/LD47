@@ -7,10 +7,14 @@ namespace TwinPixels.LD47
     {
         [SerializeField]
         private float _attackInterval = .2f;
+
+        [SerializeField] private SpriteRenderer _gemCarrySpriteRenderer;
         
         private CharacterMotor _motor;
 
         private float _lastAttackTime = Mathf.NegativeInfinity;
+
+        private Animator _animator;
 
         [SerializeField]
         private GameObject _attackPrefab;
@@ -18,10 +22,14 @@ namespace TwinPixels.LD47
         [SerializeField] private float _attackDistanceOffset = .5f;
 
         [SerializeField] private AudioClip _attackSound;
-        
+
+        private bool _canPickupGem;
+        private SkillGem _gemToPickup;
+
         private void Start()
         {
             _motor = GetComponent<CharacterMotor>();
+            _animator = GetComponentInChildren<Animator>();
         }
 
         private void Update()
@@ -33,14 +41,55 @@ namespace TwinPixels.LD47
                 Down = Input.GetKey(KeyCode.S),
                 Left = Input.GetKey(KeyCode.A),
                 Right = Input.GetKey(KeyCode.D),
+                Interact = Input.GetKeyDown(KeyCode.F)
             };
 
             _motor.CurrentInput = input;
 
-            if (input.Attack)
+            if (input.Interact && _canPickupGem)
+            {
+                Debug.Log("Picking up gem");
+                PickupGem();
+            }
+            else if (input.Attack)
             {
                 Attack();
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            Debug.Log("Player entered trigger: " + other.gameObject.name);
+            if (other.CompareTag("SkillGem"))
+            {
+                _canPickupGem = true;
+                _gemToPickup = other.GetComponent<SkillGem>();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("SkillGem"))
+            {
+                _canPickupGem = false;
+            }
+        }
+
+        private void PickupGem()
+        {
+            Debug.Log("Picking up gem: " + _gemToPickup);
+            _canPickupGem = false;
+            GameManager.Instance.isPlayerCarryingGem = true;
+            _animator.SetBool("Carrying", true);
+            _gemCarrySpriteRenderer.enabled = true;
+            Destroy(_gemToPickup.gameObject);
+        }
+
+        private void DropGem()
+        {
+            GameManager.Instance.isPlayerCarryingGem = false;
+            _gemCarrySpriteRenderer.enabled = false;
+            _animator.SetBool("Carrying", false);
         }
 
         private void Attack()
@@ -66,7 +115,7 @@ namespace TwinPixels.LD47
             attackObj.transform.Translate(Vector3.right * _attackDistanceOffset, Space.Self);
             attackObj.transform.RotateAround(transform.position, Vector3.forward, angleDeg);
             
-            AudioSource.PlayClipAtPoint(_attackSound, Camera.main.transform.position, .3f);
+            AudioSource.PlayClipAtPoint(_attackSound, Camera.main.transform.position, .5f);
             
             Destroy(attackObj, .2f);
         }

@@ -8,11 +8,19 @@ namespace TwinPixels.LD47
         private void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("DamageOnHit checking trigger against " + other.gameObject.name);
-            Bug bug = other.GetComponent<Bug>();
-            Debug.Log("Hit bug: " + bug);
-            if (bug != null)
+            if (other.CompareTag("Bug"))
             {
-                bug.TakeDamage();
+                Bug bug = other.GetComponent<Bug>();
+                if (bug != null)
+                {
+                    bug.TakeDamage();
+                }
+            }
+            else if (other.CompareTag("Spawner"))
+            {
+                Debug.Log("Hit spawner");
+                BugSpawner spawner = other.GetComponent<BugSpawner>();
+                spawner.TakeDamage();
             }
         }
     }
